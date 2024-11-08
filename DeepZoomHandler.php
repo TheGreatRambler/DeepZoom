@@ -201,7 +201,7 @@ class DeepZoomOutput extends MediaTransformOutput
         tileSources: $dzi_url
     });
     viewer_$this->container_id.addHandler('canvas-click', function(target, info) {
-        window.location.replace($dzi_info_url);
+        window.location.href = $dzi_info_url;
     });
 EOF;
 

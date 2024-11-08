@@ -200,7 +200,7 @@ class DeepZoomOutput extends MediaTransformOutput
         prefixUrl: $openseadragon_images_url,
         tileSources: $dzi_url
     });
-    viewer_$this->container_id.addHandler('canvas-click', function(target, info) {
+    viewer_$this->container_id.addHandler('canvas-double-click', function(target, info) {
         window.location.href = $dzi_info_url;
     });
 EOF;

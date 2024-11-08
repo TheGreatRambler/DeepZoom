@@ -189,6 +189,7 @@ class DeepZoomOutput extends MediaTransformOutput
     public function toHtml($options = [])
     {
         $dzi_url = $this->breakUrlForJs($this->file->getFullUrl());
+        $dzi_info_url = $this->file->getTitle()->getFullURL();
         $openseadragon_images_url = $this->breakUrlForJs("https://cdnjs.cloudflare.com/ajax/libs/openseadragon/5.0.0/images/");
         $output = <<<EOF
 <div class="mw-file-element" id="$this->container_id" style="width:400px; height:400px; background-color:black;"></div>
@@ -198,6 +199,9 @@ class DeepZoomOutput extends MediaTransformOutput
         id: "$this->container_id",
         prefixUrl: $openseadragon_images_url,
         tileSources: $dzi_url
+    });
+    viewer_$this->container_id.addHandler('canvas-click', function(target, info) {
+        window.location.replace("$dzi_info_url");
     });
 EOF;
 

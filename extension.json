@@ -1,0 +1,49 @@
+{
+    "name": "DeepZoom",
+    "author": [
+        "TheGreatRambler"
+    ],
+    "version": "1.0.0",
+    "url": "https://tgrcode.com",
+    "description": "Displays .dzi files with OpenSeaDragon viewer",
+    "license-name": "MIT",
+    "type": "media",
+    "manifest_version": 2,
+    "ExtensionMessagesFiles": {
+        "DeepZoomHandlerMagic": "DeepZoomHandler.i18n.magic.php"
+    },
+    "AutoloadClasses": {
+        "DeepZoomHandler": "DeepZoomHandler.php",
+        "DeepZoomHooks": "DeepZoomHooks.php"
+    },
+    "MediaHandlers": {
+        "image/dzi": "DeepZoomHandler"
+    },
+    "ResourceModules": {
+        "ext.deepzoom": {
+            "scripts": [
+                "https://cdnjs.cloudflare.com/ajax/libs/openseadragon/5.0.0/openseadragon.min.js"
+            ],
+            "styles": [],
+            "localBasePath": "",
+            "remoteExtPath": "DeepZoom"
+        }
+    },
+    "Hooks": {
+        "UploadVerifyFileExtensions": [
+            "DeepZoomHooks::onUploadVerifyFileExtensions"
+        ],
+        "MimeMagicInit": [
+            "DeepZoomHooks::onMimeMagicInit"
+        ],
+        "MimeMagicImproveFromExtension": [
+            "DeepZoomHooks::onMimeMagicImproveFromExtension"
+        ],
+        "MimeMagicGuessFromContent": [
+            "DeepZoomHooks::onMimeMagicGuessFromContent"
+        ],
+        "UploadVerifyFile": [
+            "DeepZoomHooks::onUploadVerifyFile"
+        ]
+    }
+}
